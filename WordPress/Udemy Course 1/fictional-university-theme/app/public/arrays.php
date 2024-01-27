@@ -9,7 +9,7 @@
 
 ?>
 
-<p>Hi my name is <?php echo $names[0] ?></p>
+<!-- <p>Hi my name is <?php echo $names[0] ?></p> Barry -->
 
 
 <li></li>

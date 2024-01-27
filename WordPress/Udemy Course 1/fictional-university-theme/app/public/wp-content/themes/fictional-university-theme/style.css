@@ -3,3 +3,11 @@ Theme Name: Fictional University
 Author: Teo
 Version: 1.1
 */
+
+h1 {
+    color: teal;
+}
+
+p{
+    color: darkblue;
+}
