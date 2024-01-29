@@ -21,3 +21,44 @@
 [27-Jan-2024 14:09:44 UTC] PHP Parse error:  Unmatched ')' in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\index.php on line 75
 [27-Jan-2024 14:16:26 UTC] PHP Parse error:  syntax error, unexpected identifier "wp_enqueue_style" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 5
 [27-Jan-2024 14:16:27 UTC] PHP Parse error:  syntax error, unexpected identifier "wp_enqueue_style" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 5
+[28-Jan-2024 07:00:09 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "university_features" not found or invalid function name in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-settings.php(621): do_action('after_setup_the...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-config.php(103): require_once('C:\\Users\\teodo\\...')
+#4 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-load.php(50): require_once('C:\\Users\\teodo\\...')
+#5 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(13): require_once('C:\\Users\\teodo\\...')
+#6 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#7 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php on line 324
+[28-Jan-2024 07:01:36 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "university_features" not found or invalid function name in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-settings.php(621): do_action('after_setup_the...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-config.php(103): require_once('C:\\Users\\teodo\\...')
+#4 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-load.php(50): require_once('C:\\Users\\teodo\\...')
+#5 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(13): require_once('C:\\Users\\teodo\\...')
+#6 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#7 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php on line 324
+[28-Jan-2024 07:01:37 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "university_features" not found or invalid function name in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-settings.php(621): do_action('after_setup_the...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-config.php(103): require_once('C:\\Users\\teodo\\...')
+#4 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-load.php(50): require_once('C:\\Users\\teodo\\...')
+#5 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(13): require_once('C:\\Users\\teodo\\...')
+#6 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#7 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php on line 324
+[28-Jan-2024 07:13:21 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 15
+[28-Jan-2024 07:13:22 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 15
+[28-Jan-2024 07:13:34 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 15
+[28-Jan-2024 07:13:36 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 15
+[29-Jan-2024 08:06:08 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 21
+[29-Jan-2024 08:15:00 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 21
+[29-Jan-2024 08:15:05 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 21
+[29-Jan-2024 08:20:07 UTC] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 25

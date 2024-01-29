@@ -9,4 +9,11 @@
     }
 
     add_action( 'wp_enqueue_scripts', 'university_files' ); // wp_enqueue_scripts - Hey WP I want to load some CSS or JS files. To load my request, execute the function university_file
+
+    function university_features() {
+        add_theme_support( 'title-tag' );
+    };
+   
+    add_action( 'after_setup_theme', 'university_features' ); // arg1 - hook - ; arg2 random function name
+
 ?>
