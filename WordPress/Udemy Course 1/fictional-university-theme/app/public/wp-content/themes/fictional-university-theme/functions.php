@@ -12,6 +12,8 @@
 
     function university_features() {
         register_nav_menu( 'headerMenuLocation', 'Header Menu Location' ); // arg1 - random name ; arg2 - human readable nama that will appear in Admin
+        register_nav_menu( 'footerExploreMenu', 'Footer Explore Menu' ); 
+        register_nav_menu( 'footerLearnMenu', 'Footer Learn Menu' ); 
         add_theme_support( 'title-tag' );
     };
    
