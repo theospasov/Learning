@@ -62,3 +62,26 @@ Stack trace:
 [29-Jan-2024 08:15:00 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 21
 [29-Jan-2024 08:15:05 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 21
 [29-Jan-2024 08:20:07 UTC] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 25
+[29-Jan-2024 20:20:31 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting "," or ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\index.php on line 6
+[29-Jan-2024 20:23:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function double() in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\index.php:12
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#3 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\index.php on line 12
+[29-Jan-2024 20:24:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function double() in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\index.php:12
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#3 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\index.php on line 12
+[29-Jan-2024 21:17:13 UTC] PHP Warning:  Undefined array key 1 in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-query.php on line 3643
+[29-Jan-2024 21:36:44 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 43
+[29-Jan-2024 21:36:47 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\page.php on line 43
+[30-Jan-2024 09:06:21 UTC] PHP Parse error:  syntax error, unexpected identifier "add_theme_support" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 15
+[30-Jan-2024 09:06:21 UTC] PHP Parse error:  syntax error, unexpected identifier "add_theme_support" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 15
+[30-Jan-2024 09:06:21 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 367
+[30-Jan-2024 09:06:21 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 368
+[30-Jan-2024 09:06:22 UTC] PHP Parse error:  syntax error, unexpected identifier "add_theme_support" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 15

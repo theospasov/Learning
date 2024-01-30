@@ -11,6 +11,7 @@
     add_action( 'wp_enqueue_scripts', 'university_files' ); // wp_enqueue_scripts - Hey WP I want to load some CSS or JS files. To load my request, execute the function university_file
 
     function university_features() {
+        register_nav_menu( 'headerMenuLocation', 'Header Menu Location' ); // arg1 - random name ; arg2 - human readable nama that will appear in Admin
         add_theme_support( 'title-tag' );
     };
    
