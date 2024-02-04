@@ -107,3 +107,59 @@ Stack trace:
 [02-Feb-2024 15:24:29 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "add_new_item", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 9
 [02-Feb-2024 15:24:29 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "add_new_item", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 9
 [02-Feb-2024 15:24:31 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "add_new_item", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 9
+[04-Feb-2024 08:28:37 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function get_post_type_archive_link(), 0 passed in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php on line 20 and exactly 1 expected in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php:1302
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php(20): get_post_type_archive_link()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#4 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php on line 1302
+[04-Feb-2024 08:28:48 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function get_post_type_archive_link(), 0 passed in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php on line 20 and exactly 1 expected in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php:1302
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php(20): get_post_type_archive_link()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#4 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php on line 1302
+[04-Feb-2024 08:30:02 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function get_post_type_archive_link(), 0 passed in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php on line 20 and exactly 1 expected in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php:1302
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php(20): get_post_type_archive_link()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#4 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php on line 1302
+[04-Feb-2024 08:30:22 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function get_post_type_archive_link(), 0 passed in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php on line 20 and exactly 1 expected in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php:1302
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\single-event.php(20): get_post_type_archive_link()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#4 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\link-template.php on line 1302
+[04-Feb-2024 09:36:12 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php on line 69
+[04-Feb-2024 09:41:01 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "has_archive", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 7
+[04-Feb-2024 09:41:03 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "has_archive", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 7
+[04-Feb-2024 09:41:03 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "has_archive", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 7
+[04-Feb-2024 09:41:04 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "has_archive", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 7
+[04-Feb-2024 11:45:37 UTC] PHP Parse error:  syntax error, unexpected token "=>", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php on line 24
+[04-Feb-2024 11:49:37 UTC] PHP Parse error:  syntax error, unexpected single-quoted string "order", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php on line 25
+[04-Feb-2024 11:57:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function data() in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php:20
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#3 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php on line 20
+[04-Feb-2024 11:59:51 UTC] PHP Parse error:  syntax error, unexpected variable "$homepageEvents" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php on line 22
+[04-Feb-2024 11:59:57 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "console" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php:21
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#3 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\front-page.php on line 21
+[04-Feb-2024 16:16:28 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 24
+[04-Feb-2024 16:16:29 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 24

@@ -16,31 +16,51 @@
       <div class="full-width-split__one">
         <div class="full-width-split__inner">
           <h2 class="headline headline--small-plus t-center">Upcoming Events</h2>
+          <?php
+            $today = date('Ymd'); // 20240204
+            $homepageEvents = new WP_Query(array(
+              'posts_per_page' => 2, // -1 will display all posts, a positive number will display that many of the posts
+              'post_type' => 'event',
+              'orderby' => 'meta_value_num', // default: post_date ; other option: title (desc alphabetically by title), rand (random), meta_value (meta data associated with the post), meta_value_num (meta data associated with the post that is numbers)
+              'meta_key' => 'event_date', // we tell meta_value_num which field/data to look at
+              'order' => 'ASC', //default: DESC
+              'meta_query' => array(
+                array(
+                  'key' => 'event_date',
+                  'compare' => '>=',
+                  'value' => $today,
+                  'type' => 'numeric' 
+                ), // we show events that are for today or in the future
+              )
+            ));
 
-          <div class="event-summary">
-            <a class="event-summary__date t-center" href="#">
-              <span class="event-summary__month">Mar</span>
-              <span class="event-summary__day">25</span>
-            </a>
-            <div class="event-summary__content">
-              <h5 class="event-summary__title headline headline--tiny"><a href="#">Poetry in the 100</a></h5>
-              <p>Bring poems you&rsquo;ve wrote to the 100 building this Tuesday for an open mic and snacks. <a href="#" class="nu gray">Learn more</a></p>
-            </div>
-          </div>
-          <div class="event-summary">
-            <a class="event-summary__date t-center" href="#">
-              <span class="event-summary__month">Apr</span>
-              <span class="event-summary__day">02</span>
-            </a>
-            <div class="event-summary__content">
-              <h5 class="event-summary__title headline headline--tiny"><a href="#">Quad Picnic Party</a></h5>
-              <p>Live music, a taco truck and more can found in our third annual quad picnic day. <a href="#" class="nu gray">Learn more</a></p>
-            </div>
-          </div>
-
-          <p class="t-center no-margin"><a href="#" class="btn btn--blue">View All Events</a></p>
+            while($homepageEvents->have_posts()) {
+              $homepageEvents->the_post(); ?>
+                <div class="event-summary">
+                  <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
+                    <span class="event-summary__month"><?php 
+                      $eventDate = new DateTime(get_field('event_date')); // PHP Class. It will take data from the custom field event_data. We use get_field(), because the_field() echoes the data, we just want to return it
+                      echo $eventDate->format('M')
+                    ?></span>
+                    <span class="event-summary__day"><?php echo $eventDate->format('d') ?></span>
+                  </a>
+                  <div class="event-summary__content">
+                    <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h5>
+                    <p><?php if(has_excerpt()){
+                      echo get_the_excerpt();
+                    } else {
+                      echo wp_trim_words(get_the_content(), 18 );
+                    } ?><a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a></p>
+                  </div>
+                </div>
+              <?php
+            } wp_reset_postdata();
+          ?>
+          <p class="t-center no-margin"><a href="<?php echo get_post_type_archive_link('event') ?>" class="btn btn--blue">View All Events</a></p>
         </div>
       </div>
+
+
       <div class="full-width-split__two">
         <div class="full-width-split__inner">
           <h2 class="headline headline--small-plus t-center">From Our Blogs</h2>
@@ -62,7 +82,11 @@
                   </a>
                   <div class="event-summary__content">
                     <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h5>
-                    <p><?php echo wp_trim_words( get_the_content(), 18 ) ?><a href="<?php the_permalink() ?>" class="nu gray">Read more</a></p>
+                    <p><?php if(has_excerpt()){
+                      echo get_the_excerpt();
+                    } else {
+                      echo wp_trim_words(get_the_content(), 18 );
+                    } ?><a href="<?php the_permalink() ?>" class="nu gray">Read more</a></p>
                   </div>
                 </div>
               <?php
