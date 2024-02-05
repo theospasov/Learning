@@ -1,6 +1,22 @@
-<div><?php echo 2 + 2; 
-    $myname='TechVolt';
-?></div>
-<h1>H1 element <?php echo $myname ?></h1>
-<?php echo 5 * 5 ?>
-<p>This is a test for <?php echo $myname ?></p>
+<h1>Test Page</h1>
+<?php 
+    $age = 20;
+    $name = 'Peter';
+    $score = 10;
+
+    if($age < 30) {
+        echo 'Correct';
+    }
+
+    if($age < 19) {
+        echo 'Incorrect';
+    }
+
+    if($age == 20 && $name == 'Peter' && $score >= 9) {
+        echo '&& Correct';
+    }
+
+    if($age == 10 || $name == 'Ivan' || $score == 10) {
+        echo '|| Correct';
+    }
+?>
