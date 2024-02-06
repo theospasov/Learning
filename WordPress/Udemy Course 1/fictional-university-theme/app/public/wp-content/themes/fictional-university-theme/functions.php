@@ -13,12 +13,21 @@
     add_action( 'wp_enqueue_scripts', 'university_files' ); // wp_enqueue_scripts - Hey WP I want to load some CSS or JS files. To load my request, execute the function university_file
 
 
-    // Creating Dynamic Menus
+    // Enable WP features
     function university_features() {
+        add_theme_support( 'title-tag' ); // WP can control the <title> tag
+        add_theme_support( 'post-thumbnails' ); // Enables Featured Image for Posts
+            // Crop Presets of Thumbnails - by default WP would make several copies of Featured images in different sizes. We can add extra presets that can make even more copies, but with specific dimensions.
+            // We can use the custom images with  the_post_thumbnail('professorPortrait'); arg1 is the random name we added to the preset
+            add_image_size('professorLandscape', 400, 260, true ); // Creates a image size preset / arg1 - Random name of image size; arg2 - width; arg3 - height; arg4 - crop or not, can add array with crop direction like array('left', 'top')
+            add_image_size( 'professorPortrait', 480, 650, true );
+            add_image_size('pageBanner', 1500, 350, true );
+
+
+        //Dynamic Menus
         register_nav_menu( 'headerMenuLocation', 'Header Menu Location' ); // arg1 - random name ; arg2 - human readable nama that will appear in Admin
         register_nav_menu( 'footerExploreMenu', 'Footer Explore Menu' ); 
         register_nav_menu( 'footerLearnMenu', 'Footer Learn Menu' ); 
-        add_theme_support( 'title-tag' );
 
     };
    
