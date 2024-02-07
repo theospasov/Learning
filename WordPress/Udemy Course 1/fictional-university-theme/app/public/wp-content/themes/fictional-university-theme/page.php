@@ -3,17 +3,14 @@
 
     while(have_posts()) { // while we still have posts
         the_post(); // keeps track of which post we're currently working with
-        ?>
+        pageBanner();
+        // pageBanner(array(
+        //     'title' => 'Hello there this is the title',
+        //     'subtitle' => 'Hi, this is the subtitle',
+        //     'banner' => 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
-        <div class="page-banner">
-            <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri( '/images/ocean.jpg' ) ?>)"></div>
-            <div class="page-banner__content container container--narrow">
-                <h1 class="page-banner__title"><?php the_title( ) ?></h1>
-                <div class="page-banner__intro">
-                <p>TODO: Replace me later</p>
-                </div>
-            </div>
-            </div>
+        // ));
+        ?>
 
             <div class="container container--narrow page-section">
                 <!-- We check if the page has a parent page and if so, we visualize a box with the title of the child page and link back to it's parent. -->
