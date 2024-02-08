@@ -2,11 +2,11 @@
 
     // Add APIs, JS and CSS files
         function university_files() {
+            wp_enqueue_style('university_extra_styles', get_theme_file_uri( '/build/index.css' ));
+            wp_enqueue_style('university_main_styles', get_theme_file_uri( '/build/style-index.css' ));  
             wp_enqueue_script( 'homepage-carousel-js', get_theme_file_uri( '/build/index.js' ), array('jquery'), '1.0', true );
             wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i' ); 
             wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' ); 
-            wp_enqueue_style('university_main_styles', get_theme_file_uri( '/build/style-index.css' )); 
-            wp_enqueue_style('university_extra_styles', get_theme_file_uri( '/build/index.css' )); 
 
         }
 
@@ -36,10 +36,10 @@
     //
 
 
-    // QUERY CUSTOMIZATION 
+    // QUERY CUSTOMIZATION - Customize behavior of DEFAULT QUERIES
         function university_adjust_queries($query) { // We NEED To add if(), because otherwise this function will customize ALL queries on our site. Let's say we limit the posts per page to 2, without the if() every post will be limited, Blog Posts and All Custom Post Types - EVERYWHERE - on query pages and in admin pages. This is too much and not really practical, so we need if() to limit the customization. This if checks that we're not in the WP admin, only applies to the Archive page of 'event' posts and isn't a custom query
 
-            // Customize behavior of DEFAULT QUERY - for Event Archive Page
+            // Event Archive Page
             if(!is_admin() && is_post_type_archive( 'event' ) && $query->is_main_query()) {
                 $today = date('Ymd');
 
@@ -56,7 +56,7 @@
                 ));
             }
 
-            // Customize behavior of DEFAULT QUERY - for Program Archive Page
+            // Program Archive Page
             if(!is_admin() && is_post_type_archive( 'program' ) && $query->is_main_query()) {
                 $query->set('orderby', 'title');
                 $query->set('order', 'ASC');

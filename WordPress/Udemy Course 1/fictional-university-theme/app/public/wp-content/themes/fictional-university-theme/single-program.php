@@ -80,8 +80,25 @@
                         $homepageEvents->the_post();
                         get_template_part('template-parts/content-event');
                         }
-                        }
+                    }
+
                     wp_reset_postdata();
+
+
+                    // Campuses
+                    $relatedCampuses = get_field('related_campuses');
+                    if($relatedCampuses) {
+                        echo '<hr class="section-break"></hr>';
+                        echo '<h2 class="headline headline--medium">' . get_the_title( ). ' is Available at these campuses</h2>';
+                        
+                        echo '<ul class="min-list link-list">';
+                        foreach($relatedCampuses as $campus) {
+                            ?>
+                            <li><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title($campus); ?></a></li>
+                            <?php
+                        }
+                        echo '</ul>';
+                    }
                 ?>
                 
             </div>
