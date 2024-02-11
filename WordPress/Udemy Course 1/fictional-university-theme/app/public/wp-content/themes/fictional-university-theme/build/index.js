@@ -116,7 +116,8 @@ class Search {
     this.openButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-search-trigger');
     this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay__close');
     this.searchOverlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay');
-    this.events(); // makes sure that the events get added to the web page as soon as it loads.
+    this.searchField = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#search-term");
+    this.events(); // makes sure that the events get added to the web page as soon as it loads. !!!NB any variables that will be used in events MUST be above this line. searchField was bellow it and wouldn't work
     this.isOverlayOpen = false;
   }
 
@@ -125,6 +126,7 @@ class Search {
     this.openButton.on('click', this.openOverlay.bind(this));
     this.closeButton.on('click', this.closeOverlay.bind(this));
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keydown', this.keyPressDispatcher.bind(this));
+    this.searchField.on('keydown', this.typingLogic);
   }
 
   // 3. methods (functions & actions)
@@ -137,6 +139,11 @@ class Search {
       // IF we press Esc on our keyboard and the overlay is active, trigger the overlay hide
       this.closeOverlay();
     }
+  }
+  typingLogic() {
+    setTimeout(function () {
+      alert('timeout');
+    }, 2000);
   }
   openOverlay() {
     this.searchOverlay.addClass('search-overlay--active');
