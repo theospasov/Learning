@@ -113,12 +113,17 @@ __webpack_require__.r(__webpack_exports__);
 class Search {
   // 1. Describe and create/initiate our object
   constructor() {
+    this.resultDiv = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#search-overlay__results');
     this.openButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-search-trigger');
     this.closeButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay__close');
     this.searchOverlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.search-overlay');
     this.searchField = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#search-term");
     this.events(); // makes sure that the events get added to the web page as soon as it loads. !!!NB any variables that will be used in events MUST be above this line. searchField was bellow it and wouldn't work
+
     this.isOverlayOpen = false;
+    this.typingTimer;
+    this.isSpinnerVisible = false;
+    this.previousValue;
   }
 
   // 2. events that trigger a response from the Class
@@ -126,12 +131,12 @@ class Search {
     this.openButton.on('click', this.openOverlay.bind(this));
     this.closeButton.on('click', this.closeOverlay.bind(this));
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keydown', this.keyPressDispatcher.bind(this));
-    this.searchField.on('keydown', this.typingLogic);
+    this.searchField.on('keyup', this.typingLogic.bind(this));
   }
 
   // 3. methods (functions & actions)
   keyPressDispatcher(e) {
-    if (e.keyCode == 83 && !this.isOverlayOpen) {
+    if (e.keyCode == 83 && !this.isOverlayOpen && !jquery__WEBPACK_IMPORTED_MODULE_0___default()('input, textarea').is(':focus')) {
       // IF we press S on our keyboard and the overlay isn't active, trigger the overlay show
       this.openOverlay();
     }
@@ -141,9 +146,24 @@ class Search {
     }
   }
   typingLogic() {
-    setTimeout(function () {
-      alert('timeout');
-    }, 2000);
+    if (this.searchField.val() != this.previousValue) {
+      clearTimeout(this.typingTimer);
+      if (this.searchField.val()) {
+        if (!this.isSpinnerVisible) {
+          this.resultDiv.html('<div class="spinner-loader"></div>');
+          this.isSpinnerVisible = true;
+        }
+        this.typingTimer = setTimeout(this.getResults.bind(this), 2000);
+      } else {
+        this.resultDiv.html('');
+        this.isSpinnerVisible = false;
+      }
+    }
+    this.previousValue = this.searchField.val();
+  }
+  getResults() {
+    this.resultDiv.html('imagine real search results');
+    this.isSpinnerVisible = false;
   }
   openOverlay() {
     this.searchOverlay.addClass('search-overlay--active');
