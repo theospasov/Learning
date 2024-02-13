@@ -162,8 +162,9 @@ class Search {
     this.previousValue = this.searchField.val();
   }
   getResults() {
-    this.resultDiv.html('imagine real search results');
-    this.isSpinnerVisible = false;
+    jquery__WEBPACK_IMPORTED_MODULE_0___default().getJSON(`http://fictional-university-theme.local/wp-json/wp/v2/posts?search=${this.searchField.val()}`, function (data) {
+      alert(data[0].title.rendered);
+    });
   }
   openOverlay() {
     this.searchOverlay.addClass('search-overlay--active');

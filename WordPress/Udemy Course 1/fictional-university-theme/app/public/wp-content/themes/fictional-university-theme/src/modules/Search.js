@@ -59,8 +59,9 @@ class Search {
     }
 
     getResults() {
-        this.resultDiv.html('imagine real search results')
-        this.isSpinnerVisible = false
+        $.getJSON(`http://fictional-university-theme.local/wp-json/wp/v2/posts?search=${this.searchField.val()}`, function(data) {
+            alert(data[0].title.rendered)
+        })
     }
 
     openOverlay() {
