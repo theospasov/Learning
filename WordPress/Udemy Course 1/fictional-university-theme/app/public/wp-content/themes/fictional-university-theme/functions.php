@@ -8,6 +8,12 @@
             wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i' ); 
             wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' ); 
 
+
+            // Relative URLs for REST
+            wp_localize_script( 'homepage-carousel-js', 'universityData', array(
+                'root_url' => get_site_url(), // gets the site's domain
+
+            ) ); // WP function that will let us output JS data in the sourced HTML of the page. | arg1 - name of main JS file(the one we're trying to make flexible) ; arg2 - random variable name; arg3 - create an array of data, that we want to be available in JS
         }
 
         add_action( 'wp_enqueue_scripts', 'university_files' ); // wp_enqueue_scripts - Hey WP I want to load some CSS or JS files. To load my request, execute the function university_file
