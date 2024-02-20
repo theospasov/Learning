@@ -3,6 +3,7 @@ import $ from 'jquery'
 class Search {
     // 1. Describe and create/initiate our object
     constructor() {
+        this.addSearchHTML()
         this.resultDiv = $('#search-overlay__results')
         this.openButton = $('.js-search-trigger')
         this.closeButton = $('.search-overlay__close')
@@ -46,7 +47,7 @@ class Search {
                     this.isSpinnerVisible = true
                 }
                 
-                this.typingTimer = setTimeout( this.getResults.bind(this), 2000)
+                this.typingTimer = setTimeout( this.getResults.bind(this), 750)
             } else {
                 this.resultDiv.html('')
                 this.isSpinnerVisible = false
@@ -59,20 +60,51 @@ class Search {
     }
 
     getResults() {
-        $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts?search=${this.searchField.val()}`, function(data) {
-            this.resultDiv.html(`
+        //Asynchronous Version
+        // jQuery when() method - all of the JSON request will run asynchronously 
+        $.when(
+            $.getJSON(`${universityData.root_url}/wp-jsondd/wp/v2/posts?search=${this.searchField.val()}`),
+            $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages?search=${this.searchField.val()}`),
+
+        ).then((resultPosts, resultPages) => { // then() collects the results from when() and allows us to use them. The 1st arg is a function that can use the results and the 2nd arg is Error Handling - what will happen when we unsuccessful request in the when()
+            let combinedResult = resultPosts[0].concat(resultPages[0]) // then() returns an array, where the 1st arg is the result, the second is whether the request was successful 
+                console.log(resultPages);
+                this.resultDiv.html(`
                 <h2 class="search-overlay__section-title">General Info</h2>
-                ${data.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
-                    ${data.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
-                ${data.length ? '</ul>' : '' }
+                ${combinedResult.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
+                    ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+                ${combinedResult.length ? '</ul>' : '' }
             `)
             this.isSpinnerVisible = false
-        }.bind(this))
+        }, () => {
+            //Error Handling
+            this.resultDiv.html(`<p>Unexpected error</p>`)
+        })
+
+
+        //Synchronous Version
+            // $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts?search=${this.searchField.val()}`, resultPosts => 
+            // {
+            //     $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages?search=${this.searchField.val()}`, resultPages => 
+            //     {
+            //         let combinedResult = resultPosts.concat(resultPages)
+            //         this.resultDiv.html(`
+            //         <h2 class="search-overlay__section-title">General Info</h2>
+            //         ${combinedResult.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
+            //             ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+            //         ${combinedResult.length ? '</ul>' : '' }
+            //     `)
+            //     this.isSpinnerVisible = false
+            //     })
+            // })
+        
     }
 
     openOverlay() {
         this.searchOverlay.addClass('search-overlay--active')
         $('body').addClass('body-no-scroll')
+        this.searchField.val('')
+        setTimeout(() => this.searchField.trigger('focus'), 301)
         this.isOverlayOpen = true
     }
 
@@ -80,6 +112,24 @@ class Search {
         this.searchOverlay.removeClass('search-overlay--active')
         $('body').removeClass('body-no-scroll')
         this.isOverlayOpen = false
+    }
+
+    addSearchHTML() {
+        $('body').append(`
+            <div class="search-overlay">
+                <div class="search-overlay__top">
+                <div class="container">
+                    <i class="fa fa-search search-overlay__icon" area-hidden="true"></i>
+                    <input type="text" class="search-term" placeholder="Search me" id="search-term" autocomplete="off" >
+                    <i class="fa fa-window-close search-overlay__close" area-hidden="true"></i>
+                </div>
+                </div>
+        
+                <div class="container">
+                <div id="search-overlay__results"></div>
+                </div>
+            </div>
+        `)
     }
 }
 
