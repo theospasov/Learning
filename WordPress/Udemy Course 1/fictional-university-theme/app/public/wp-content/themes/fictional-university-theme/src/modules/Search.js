@@ -63,16 +63,15 @@ class Search {
         //Asynchronous Version
         // jQuery when() method - all of the JSON request will run asynchronously 
         $.when(
-            $.getJSON(`${universityData.root_url}/wp-jsondd/wp/v2/posts?search=${this.searchField.val()}`),
+            $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts?search=${this.searchField.val()}`),
             $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages?search=${this.searchField.val()}`),
 
         ).then((resultPosts, resultPages) => { // then() collects the results from when() and allows us to use them. The 1st arg is a function that can use the results and the 2nd arg is Error Handling - what will happen when we unsuccessful request in the when()
             let combinedResult = resultPosts[0].concat(resultPages[0]) // then() returns an array, where the 1st arg is the result, the second is whether the request was successful 
-                console.log(resultPages);
                 this.resultDiv.html(`
                 <h2 class="search-overlay__section-title">General Info</h2>
                 ${combinedResult.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
-                    ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+                    ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> ${item.type == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
                 ${combinedResult.length ? '</ul>' : '' }
             `)
             this.isSpinnerVisible = false

@@ -47,7 +47,7 @@ function university_custom_post_types() {
         register_post_type( 'professor', array(
             'supports' => array('title', 'editor', 'excerpt', 'thumbnail'), // add the excerpt field to the edit page of the post; adds Featured Image field
             'public' => true, // visible to editors and viewers of the website
-            'show_in_rest' => false, // false - New custom post types will use the old classic Editor screen
+            'show_in_rest' => true, // | REST URL: http://fictional-university-theme.local/wp-json/wp/v2/professor|  false - New custom post types will use the old classic Editor screen and the URL won't work. true - New post Editor and data will show at REST URL
             'labels' => array(
                 'name' => 'Professors',
                 'add_new' => 'Add New Professor',

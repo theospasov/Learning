@@ -1,4 +1,17 @@
 <?php 
+require get_theme_file_path( '/includes/search-route.php' );
+
+
+
+    // REST API
+
+        // Adding author name to the JSON Response
+        function university_search_custom_rest() {
+            register_rest_field( 'post', 'authorName', array(
+                'get_callback' => function() {return get_the_author();}
+            )); // arg1 -which post type you want to change; arg2 - name of new filed; arg3 - array that describes how we want to manage this field
+        }
+        add_action('rest_api_init', 'university_search_custom_rest');
 
     // Add APIs, JS and CSS files
         function university_files() {
