@@ -60,43 +60,80 @@ class Search {
     }
 
     getResults() {
-        //Asynchronous Version
-        // jQuery when() method - all of the JSON request will run asynchronously 
-        $.when(
-            $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts?search=${this.searchField.val()}`),
-            $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages?search=${this.searchField.val()}`),
+        // Custom API URL Version
+        $.getJSON(`${universityData.root_url}/wp-json/uni/v1/search?term=${this.searchField.val()}`, (results) => {
+            this.resultDiv.html(`
+                <div class="row">
+                    <div class="one-third">
+                        <h2 class="search-overlay__section-title">General Info</h2>
+                        ${results.generalInfo.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
+                             ${results.generalInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a> ${item.postType == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
+                        ${results.generalInfo.length ? '</ul>' : '' }
+                    </div>
+                    <div class="one-third">
+                        <h2 class="search-overlay__section-title">Programs</h2>
+                        ${results.programs.length ? '<ul class="link-list min-list">' : `<p>No matches. <a href="${universityData.root_url}/programs">View all programs</a></p>` }
+                            ${results.programs.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+                        ${results.programs.length ? '</ul>' : '' }
+                        <h2 class="search-overlay__section-title">Professors</h2>
+                        ${results.professors.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
+                            ${results.professors.map(item => `<li><a href="${item.permalink}">${item.title}</a> ${item.postType == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
+                        ${results.professors.length ? '</ul>' : '' }
+                    </div>
+                    <div class="one-third">
+                        <h2 class="search-overlay__section-title">Campuses</h2>
+                        ${results.campuses.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
+                            ${results.campuses.map(item => `<li><a href="${item.permalink}">${item.title}</a> ${item.postType == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
+                        ${results.campuses.length ? '</ul>' : '' }
 
-        ).then((resultPosts, resultPages) => { // then() collects the results from when() and allows us to use them. The 1st arg is a function that can use the results and the 2nd arg is Error Handling - what will happen when we unsuccessful request in the when()
-            let combinedResult = resultPosts[0].concat(resultPages[0]) // then() returns an array, where the 1st arg is the result, the second is whether the request was successful 
-                this.resultDiv.html(`
-                <h2 class="search-overlay__section-title">General Info</h2>
-                ${combinedResult.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
-                    ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> ${item.type == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
-                ${combinedResult.length ? '</ul>' : '' }
-            `)
-            this.isSpinnerVisible = false
-        }, () => {
-            //Error Handling
-            this.resultDiv.html(`<p>Unexpected error</p>`)
-        })
+                        <h2 class="search-overlay__section-title">Events</h2>
+                            ${results.events.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
+                                ${results.events.map(item => `<li><a href="${item.permalink}">${item.title}</a> ${item.postType == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
+                            ${results.events.length ? '</ul>' : '' }
+                    </div>
+                </div>
+            `);
+            this.isSpinnerVisible = false;
+        });
 
+        //Default API URL version
+            //Asynchronous Version
+            // jQuery when() method - all of the JSON request will run asynchronously 
+            // $.when(
+            //     $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts?search=${this.searchField.val()}`),
+            //     $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages?search=${this.searchField.val()}`),
 
-        //Synchronous Version
-            // $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts?search=${this.searchField.val()}`, resultPosts => 
-            // {
-            //     $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages?search=${this.searchField.val()}`, resultPages => 
-            //     {
-            //         let combinedResult = resultPosts.concat(resultPages)
+            // ).then((resultPosts, resultPages) => { // then() collects the results from when() and allows us to use them. The 1st arg is a function that can use the results and the 2nd arg is Error Handling - what will happen when we unsuccessful request in the when()
+            //     let combinedResult = resultPosts[0].concat(resultPages[0]) // then() returns an array, where the 1st arg is the result, the second is whether the request was successful 
             //         this.resultDiv.html(`
             //         <h2 class="search-overlay__section-title">General Info</h2>
             //         ${combinedResult.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
-            //             ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+            //             ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a> ${item.type == 'post' ? `by ${item.authorName}` : ''}</li>`).join('')}
             //         ${combinedResult.length ? '</ul>' : '' }
             //     `)
             //     this.isSpinnerVisible = false
-            //     })
+            // }, () => {
+            //     //Error Handling
+            //     this.resultDiv.html(`<p>Unexpected error</p>`)
             // })
-        
+
+
+            //Synchronous Version
+                // $.getJSON(`${universityData.root_url}/wp-json/wp/v2/posts?search=${this.searchField.val()}`, resultPosts => 
+                // {
+                //     $.getJSON(`${universityData.root_url}/wp-json/wp/v2/pages?search=${this.searchField.val()}`, resultPages => 
+                //     {
+                //         let combinedResult = resultPosts.concat(resultPages)
+                //         this.resultDiv.html(`
+                //         <h2 class="search-overlay__section-title">General Info</h2>
+                //         ${combinedResult.length ? '<ul class="link-list min-list">' : '<p>No matches</p>' }
+                //             ${combinedResult.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+                //         ${combinedResult.length ? '</ul>' : '' }
+                //     `)
+                //     this.isSpinnerVisible = false
+                //     })
+                // })
+            
     }
 
     openOverlay() {

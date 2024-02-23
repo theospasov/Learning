@@ -10,21 +10,61 @@ function universityRegisterSearch() {
 }
 
 function universitySearchResults($data) {
-    // We create a query to tell WP which post type to search
+    // We create a query to tell WP which post types to search
     $mainQuery = new WP_Query(array(
-        'post_type' => array('post', 'page', 'professor'),
+        'post_type' => array('post', 'page', 'professor', 'program', 'campus', 'event'),
         's' => sanitize_text_field( $data['term'] ) // will make our search term come from the Query URL ->site.com/wp-json/uni/v1/search?term=%27barksalot%27. In this case s = barksalot and WP will perform a search for a professor with that name and return their data 
     ));
 
-    $results = array();
+    $results = array(
+        'generalInfo' => array(),
+        'professors' => array(),
+        'programs' => array(),
+        'events' => array(),
+        'campuses' => array(),
+    );
 
-    // We loop through the Custom Query and we extract only the data we need and we add it to the new array
+    // We loop through the Custom Query and we extract only the data we need and we add it to the appropriate empty array 
     while($mainQuery->have_posts()) {
         $mainQuery->the_post();
-        array_push($results, array(
-            'title' => get_the_title(),
-            'permalink' => get_the_permalink(),
-        ));
+
+        if(get_post_type() == 'post' || get_post_type() == 'page') {
+            array_push($results['generalInfo'], array(
+                'title' => get_the_title(),
+                'permalink' => get_the_permalink(),
+                'postType' => get_post_type(),
+                'authorName' => get_the_author(),
+            ));
+        }
+
+        if(get_post_type() == 'professor' ) {
+            array_push($results['professors'], array(
+                'title' => get_the_title(),
+                'permalink' => get_the_permalink(),
+            ));
+        }
+
+        if(get_post_type() == 'program' ) {
+            array_push($results['programs'], array(
+                'title' => get_the_title(),
+                'permalink' => get_the_permalink(),
+            ));
+        }
+
+        if(get_post_type() == 'campus' ) {
+            array_push($results['campuses'], array(
+                'title' => get_the_title(),
+                'permalink' => get_the_permalink(),
+            ));
+        }
+
+        if(get_post_type() == 'event' ) {
+            array_push($results['events'], array(
+                'title' => get_the_title(),
+                'permalink' => get_the_permalink(),
+            ));
+        }
+
     }
 
     return $results;
