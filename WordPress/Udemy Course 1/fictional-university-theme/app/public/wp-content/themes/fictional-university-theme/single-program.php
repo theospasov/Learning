@@ -14,7 +14,7 @@
                 </div>
                 <div class="generic-content">
 
-                <?php the_content(); ?>
+                <?php the_field('programs_alternative_body_content'); ?>
 
                 <?php
                     // Professors

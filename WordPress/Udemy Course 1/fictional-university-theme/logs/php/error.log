@@ -322,3 +322,8 @@ Stack trace:
 #12 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
 #13 {main}
   thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\includes\search-route.php on line 48
+[23-Feb-2024 15:18:23 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\includes\search-route.php on line 57
+[23-Feb-2024 15:18:23 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\includes\search-route.php on line 57
+[23-Feb-2024 15:18:23 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 367
+[23-Feb-2024 15:18:23 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 368
+[23-Feb-2024 15:18:27 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\includes\search-route.php on line 57
