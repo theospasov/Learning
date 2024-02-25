@@ -6,18 +6,22 @@ require get_theme_file_path( '/includes/search-route.php' );
     // REST API
 
         // Adding author name to the JSON Response
-        function university_search_custom_rest() {
-            register_rest_field( 'post', 'authorName', array(
-                'get_callback' => function() {return get_the_author();}
-            )); // arg1 -which post type you want to change; arg2 - name of new filed; arg3 - array that describes how we want to manage this field
-        }
-        add_action('rest_api_init', 'university_search_custom_rest');
+            function university_search_custom_rest() {
+                register_rest_field( 'post', 'authorName', array(
+                    'get_callback' => function() {return get_the_author();}
+                )); // arg1 -which post type you want to change; arg2 - name of new filed; arg3 - array that describes how we want to manage this field
+            }
+            add_action('rest_api_init', 'university_search_custom_rest');
+        //
+
+    //
+
 
     // Add APIs, JS and CSS files
         function university_files() {
+            wp_enqueue_script( 'homepage-carousel-js', get_theme_file_uri( '/build/index.js' ), array('jquery'), '1.0', true );
             wp_enqueue_style('university_extra_styles', get_theme_file_uri( '/build/index.css' ));
             wp_enqueue_style('university_main_styles', get_theme_file_uri( '/build/style-index.css' ));  
-            wp_enqueue_script( 'homepage-carousel-js', get_theme_file_uri( '/build/index.js' ), array('jquery'), '1.0', true );
             wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i' ); 
             wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' ); 
 
@@ -126,4 +130,55 @@ require get_theme_file_path( '/includes/search-route.php' );
         }
     //
 
+    // USER ACTIONS
+        // Redirect on login to homepage. Default is admin page
+            add_action( 'admin_init', 'redirectUserToHomePage');
+
+            function redirectUserToHomePage() {
+                $currentUser = wp_get_current_user();
+
+                if(count($currentUser->roles) == 1 && $currentUser->roles[0] == 'subscriber') {
+                    wp_redirect(site_url('/') );
+                    exit;
+                }
+            }
+        //
+
+        // Hide WP top bar
+            add_action( 'wp_loaded', 'hideAdminBar');
+
+            function hideAdminBar() {
+                $currentUser = wp_get_current_user();
+
+                if(count($currentUser->roles) == 1 && $currentUser->roles[0] == 'subscriber') {
+                    show_admin_bar(false );
+                }
+            }
+        //
+
+        // Customize Login Screen
+            // Clicking on logo takes us to Homepage, instead of WP.org
+            add_filter('login_headerurl', 'customHeaderUrl' );
+
+            function customHeaderUrl() {
+                return esc_url(site_url('/'));
+            }
+
+        //
+
+        // Load custom CSS (our excising CSS files) on Login Screen
+            add_action( 'login_enqueue_scripts', 'customLoginCSS' );
+
+            function customLoginCSS() {
+                wp_enqueue_style('university_extra_styles', get_theme_file_uri( '/build/index.css' ));
+                wp_enqueue_style('university_main_styles', get_theme_file_uri( '/build/style-index.css' ));  
+                wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i' ); 
+                wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' ); 
+            }
+        //
+
+        add_filter('login_headertitle', 'customLoginTitle');
+        function customLoginTitle() {
+            return get_bloginfo('name');
+        }
 ?>
