@@ -29,6 +29,7 @@ require get_theme_file_path( '/includes/search-route.php' );
             // Relative URLs for REST
             wp_localize_script( 'homepage-carousel-js', 'universityData', array(
                 'root_url' => get_site_url(), // gets the site's domain
+                'nonce' => wp_create_nonce('wp_rest') // Creates Nonce, used for authorizing REST API requests. It is created and deleted per user per session
 
             ) ); // WP function that will let us output JS data in the sourced HTML of the page. | arg1 - name of main JS file(the one we're trying to make flexible) ; arg2 - random variable name; arg3 - create an array of data, that we want to be available in JS
         }

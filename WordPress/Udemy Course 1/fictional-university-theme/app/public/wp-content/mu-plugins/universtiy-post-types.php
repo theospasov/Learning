@@ -83,6 +83,25 @@ function university_custom_post_types() {
 
     //
 
+    // Note Post Type
+        register_post_type( 'note', array(
+            'show_in_rest' => true, // will work with the REST API
+            'supports' => array('title', 'editor'),
+            'public' => false, // notes have to private and specific to each user, but also will hide it from the admin dashboard
+            'show_ui' => true, // will show in the admin dashboard
+            'labels' => array(
+                'name' => 'Notes',
+                'add_new' => 'Add New Note',
+                'add_new_item' => 'Add New Note',
+                'edit_item' => 'Edit Note',
+                'all_items' => 'All Notes',
+                'singular_name' => 'Note'
+            ),
+            'menu_icon' => 'dashicons-welcome-write-blog'
+        )); 
+    //
+
+
 }; 
 
 add_action( 'init', 'university_custom_post_types'); 
