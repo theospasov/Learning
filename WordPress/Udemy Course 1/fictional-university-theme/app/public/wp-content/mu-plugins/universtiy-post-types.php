@@ -85,6 +85,8 @@ function university_custom_post_types() {
 
     // Note Post Type
         register_post_type( 'note', array(
+            'capability_type' => 'note', // this will allow us to separate Notes from all Posts when in comes to privileges of the site Roles. This way Notes will appear separately in the Members plugin and we can enable users to edit their own notes. The 'note' can be a random word
+            'map_meta_cap' => true, // will enforce capability_type
             'show_in_rest' => true, // will work with the REST API
             'supports' => array('title', 'editor'),
             'public' => false, // notes have to private and specific to each user, but also will hide it from the admin dashboard
