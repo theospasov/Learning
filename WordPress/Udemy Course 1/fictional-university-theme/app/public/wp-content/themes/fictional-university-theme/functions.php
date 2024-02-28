@@ -10,6 +10,10 @@ require get_theme_file_path( '/includes/search-route.php' );
                 register_rest_field( 'post', 'authorName', array(
                     'get_callback' => function() {return get_the_author();}
                 )); // arg1 -which post type you want to change; arg2 - name of new filed; arg3 - array that describes how we want to manage this field
+
+                register_rest_field( 'note', 'userNoteCount', array(
+                    'get_callback' => function() {return count_user_posts( get_current_user_id(), 'note');}
+                )); 
             }
             add_action('rest_api_init', 'university_search_custom_rest');
         //
@@ -131,7 +135,7 @@ require get_theme_file_path( '/includes/search-route.php' );
         }
     //
 
-    // USER ACTIONS
+    // Authentication and Authorization ACTIONS
         // Redirect on login to homepage. Default is admin page
             add_action( 'admin_init', 'redirectUserToHomePage');
 
@@ -178,8 +182,47 @@ require get_theme_file_path( '/includes/search-route.php' );
             }
         //
 
-        add_filter('login_headertitle', 'customLoginTitle');
-        function customLoginTitle() {
-            return get_bloginfo('name');
-        }
+        // Make the name of the Blog to appear on the Login Page
+            add_filter('login_headertitle', 'customLoginTitle');
+            function customLoginTitle() {
+                return get_bloginfo('name');
+            }
+
+        //
+
+    //    
+
+
+    // CRUD
+        // Force note posts to be private + sanitized + limit number of Note posts per user
+
+            add_filter('wp_insert_post_data', 'makeNotePrivate', 10, 2); // this filer hook intercepts the process of Post creation and gives us control of what data gets sent to the server. This is useful, because the frontend can be modified by malicious actors. With this, even if the fronted request is malicious, we can force it to be as we want it to be. | arg 3 & 4 - 99/9:38
+
+            function makeNotePrivate($data, $postarr) {
+                if($data['post_type'] == 'note' && $data['post_status'] != 'trash') {
+                    $data['post_status'] = 'private';
+                }
+
+                // Sanitize the textarea and title, so if a malicious user adds any HTML (even allowed like <p>Hello</p>) the tags will be removed
+                if($data['post_type'] == 'note') {
+                    $data['post_content'] = sanitize_textarea_field($data['post_content']);
+                    $data['post_title'] = sanitize_text_field($data['post_title']);
+
+                    // Limit number of Notes
+                        if(count_user_posts(get_current_user_id(), 'note') > 4 && !$postarr['ID']) {
+                            die("You have reached your note limit"); // this will cancel the request 
+                        }
+
+                    //
+                }
+
+                return $data;
+            }
+        //
+
+    //
+
+
+
+
 ?>

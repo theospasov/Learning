@@ -150,6 +150,10 @@ class MyNotes {
 
         // Visually hiding the note, so the user doesn't have to refresh the page to see the change 
         thisNote.slideUp(); // jQuery func that visually removes the element frm the page with a slideup animation (adds display: none)
+
+        if (response.userNoteCount < 5) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.note-limit-message').removeClass('active');
+        }
       },
       // function we want to run if the request is successful 
       error: response => {
@@ -218,7 +222,7 @@ class MyNotes {
     let ourNewPost = {
       'title': jquery__WEBPACK_IMPORTED_MODULE_0___default()('.new-note-title').val(),
       'content': jquery__WEBPACK_IMPORTED_MODULE_0___default()('.new-note-body').val(),
-      'status': 'publish' //def - draft. By default crateNote will create a draft note and we won't see it on the frontend; to fix this we set it to 'publish'
+      'status': 'publish' //def - draft. By default crateNote will create a draft note and we won't see it on the frontend; We can choose 'public', so it appear for the user and in the default REST API or 'private' so it appears for the user, but not in the default REST API 
     };
     jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
       beforeSend: xhr => {
@@ -242,6 +246,9 @@ class MyNotes {
         console.log(response);
       },
       error: response => {
+        if (response.responseText == 'You have reached your note limit') {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.note-limit-message').addClass('active');
+        }
         console.log('Fail');
         console.log(response);
       }

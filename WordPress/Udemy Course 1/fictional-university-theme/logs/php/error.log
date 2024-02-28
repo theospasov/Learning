@@ -337,3 +337,42 @@ Stack trace:
 [26-Feb-2024 20:51:32 UTC] PHP Parse error:  syntax error, unexpected token "=>", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 90
 [26-Feb-2024 20:51:48 UTC] PHP Parse error:  syntax error, unexpected token "=>", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 90
 [26-Feb-2024 20:51:50 UTC] PHP Parse error:  syntax error, unexpected token "=>", expecting ")" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\mu-plugins\universtiy-post-types.php on line 90
+[27-Feb-2024 10:36:07 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function add_filter(), 0 passed in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 194 and at least 2 expected in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php:121
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php(194): add_filter()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-settings.php(611): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-config.php(103): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-load.php(50): require_once('C:\\Users\\teodo\\...')
+#4 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\teodo\\...')
+#5 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php on line 121
+[27-Feb-2024 10:36:54 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function add_filter(), 0 passed in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 194 and at least 2 expected in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php:121
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php(194): add_filter()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-settings.php(611): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-config.php(103): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-load.php(50): require_once('C:\\Users\\teodo\\...')
+#4 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\teodo\\...')
+#5 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php on line 121
+[27-Feb-2024 10:38:07 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function add_filter(), 0 passed in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 194 and at least 2 expected in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php:121
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php(194): add_filter()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-settings.php(611): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-config.php(103): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-load.php(50): require_once('C:\\Users\\teodo\\...')
+#4 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\admin-ajax.php(22): require_once('C:\\Users\\teodo\\...')
+#5 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php on line 121
+[27-Feb-2024 10:40:08 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 200
+[27-Feb-2024 10:40:08 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 367
+[27-Feb-2024 10:40:08 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-recovery-mode-email-service.php on line 368
+[27-Feb-2024 10:40:54 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 203
+[27-Feb-2024 10:41:31 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 203
+[27-Feb-2024 10:41:40 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 203
+[27-Feb-2024 10:42:03 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 203
+[27-Feb-2024 10:43:46 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 203
+[27-Feb-2024 10:45:47 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 203
+[27-Feb-2024 10:45:55 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 201
+[27-Feb-2024 10:46:01 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 201
+[27-Feb-2024 10:46:01 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\themes\fictional-university-theme\functions.php on line 201
