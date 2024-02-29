@@ -104,6 +104,24 @@ function university_custom_post_types() {
     //
 
 
+    // Like Post Type
+        register_post_type( 'like', array(
+            'supports' => array('title'),
+            'public' => false, // notes have to private and specific to each user, but also will hide it from the admin dashboard
+            'show_ui' => true, // will show in the admin dashboard
+            'labels' => array(
+                'name' => 'Likes',
+                'add_new' => 'Add New Like',
+                'add_new_item' => 'Add New Like',
+                'edit_item' => 'Edit Like',
+                'all_items' => 'All Likes',
+                'singular_name' => 'Like'
+            ),
+            'menu_icon' => 'dashicons-heart'
+        )); 
+    //
+
+
 }; 
 
 add_action( 'init', 'university_custom_post_types'); 
