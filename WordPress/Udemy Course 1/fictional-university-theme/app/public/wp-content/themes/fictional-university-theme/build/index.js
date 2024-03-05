@@ -100,15 +100,22 @@ class Like {
     // in case we have multiple like boxes
     let currentLikeBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).closest('.like-box');
     if (currentLikeBox.data('exists') == 'yes') {
-      this.deleteLike();
+      this.deleteLike(currentLikeBox);
     } else {
-      this.crateLike();
+      this.crateLike(currentLikeBox);
     }
   }
-  crateLike() {
+  crateLike(currentLikeBox) {
     jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
+      beforeSend: xhr => {
+        xhr.setRequestHeader('X-WP-Nonce', universityData.nonce);
+      },
       url: `${universityData.root_url}/wp-json/uni/v1/manageLike`,
       type: 'POST',
+      data: {
+        'professorId': currentLikeBox.data('professor')
+      },
+      // equivalent of /wp-json/uni/v1/manageLike?professorId='x'
       success: response => {
         console.log(response);
       },
