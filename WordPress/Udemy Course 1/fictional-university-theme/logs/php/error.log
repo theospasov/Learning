@@ -413,3 +413,17 @@ Stack trace:
 [09-Mar-2024 17:09:08 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\our-first-unique-plugin\our-first-unique-plugin.php on line 17
 [09-Mar-2024 17:09:08 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\our-first-unique-plugin\our-first-unique-plugin.php on line 17
 [09-Mar-2024 17:09:08 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\our-first-unique-plugin\our-first-unique-plugin.php on line 17
+[13-Mar-2024 08:54:07 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func(): Argument #1 ($callback) must be a valid callback, class WordCountAndTimePlugin does not have a method "wcp_characterCountHTML" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\includes\template.php:1836
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\includes\template.php(1790): do_settings_fields('word-count-sett...', 'wcp_first_secti...')
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\our-first-unique-plugin\our-first-unique-plugin.php(84): do_settings_sections('word-count-sett...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php(324): WordCountAndTimePlugin->ourHTML('')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#4 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\admin.php(259): do_action('settings_page_w...')
+#6 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\options-general.php(10): require_once('C:\\Users\\teodo\\...')
+#7 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-admin\includes\template.php on line 1836
+[13-Mar-2024 09:04:22 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\our-first-unique-plugin\our-first-unique-plugin.php on line 55
+[13-Mar-2024 09:04:22 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\our-first-unique-plugin\our-first-unique-plugin.php on line 55
+[13-Mar-2024 09:04:23 UTC] PHP Parse error:  syntax error, unexpected token "}", expecting ";" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\our-first-unique-plugin\our-first-unique-plugin.php on line 55
