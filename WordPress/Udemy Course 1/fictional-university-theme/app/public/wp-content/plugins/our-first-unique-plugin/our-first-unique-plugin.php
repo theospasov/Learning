@@ -4,6 +4,8 @@
     Description: A truly amazing plugin
     Version: 1.0
     Author: Teo
+    Text Domain: wcpdomain
+    Domain Path: /languages
 */
 
 // if we use Class instead of functions, we can bypass the already taken names of functions and name them more simply e.g. adminPage() instead of ourPluginSettingsLink()
@@ -15,7 +17,12 @@ class WordCountAndTimePlugin {
         add_action('admin_init', array($this, 'settings'));
 
         add_filter('the_content', array($this, 'ifWrap'));
+        add_action('init', array($this, 'languages'));
 
+    }
+
+    function languages() {
+        load_plugin_textdomain( 'wcpdomain', false, dirname(plugin_basename( __FILE__ )) . '/languages' );
     }
 
     function ifWrap($content) {
@@ -35,7 +42,7 @@ class WordCountAndTimePlugin {
         }
 
         if(get_option('wcp_wordcount', '1')) {
-            $html.= 'This post has ' . $wordCount . ' words<br>';
+            $html.= esc_html__('This post has', 'wcpdomain') . ' ' . $wordCount . ' ' . __('words', 'wcpdomain') . '<br>';
         }
         if(get_option('wcp_characterCount', '1')) {
             $html.= 'This post has ' . strlen(strip_tags($content)) . ' characters<br>';
@@ -117,7 +124,7 @@ class WordCountAndTimePlugin {
 
     function adminPage() {
         // add_options_page will add a new Settings Page Link in the WP Admin/Settings/dropdown
-        add_options_page( 'Word Count Settings', 'Word Count', 'manage_options', 'word-count-settings-page', array($this, 'ourHTML'), 0 ); // arg1 - the title of the plugin, used in the Tab of the browser ; arg2 - the title that will appear in WP Admin/Settings (dropdown menu) ; arg3 - who is authorized to use this plugin - 'manage_options' - means only if the user is allowed to manage options should they see this page AKA is admin; arg4 - slug (must be unique) - what will be used at the end of the URL for our new Settings page; arg5 - callback function that will output the HTML of the Settings page; arg6 - in which position of the dropdown should the new Settings Page appear - 0 means first
+        add_options_page( 'Word Count Settings', __('Word Count', 'wcpdomain'), 'manage_options', 'word-count-settings-page', array($this, 'ourHTML'), 0 ); // arg1 - the title of the plugin, used in the Tab of the browser ; arg2 - the title that will appear in WP Admin/Settings (dropdown menu) ; arg3 - who is authorized to use this plugin - 'manage_options' - means only if the user is allowed to manage options should they see this page AKA is admin; arg4 - slug (must be unique) - what will be used at the end of the URL for our new Settings page; arg5 - callback function that will output the HTML of the Settings page; arg6 - in which position of the dropdown should the new Settings Page appear - 0 means first
     }
     
     function ourHTML() { ?>
