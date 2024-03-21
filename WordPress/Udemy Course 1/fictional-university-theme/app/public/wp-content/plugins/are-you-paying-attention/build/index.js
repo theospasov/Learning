@@ -117,6 +117,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+function ourStartFunction() {
+  let locked = false;
+  wp.data.subscribe(function () {
+    const results = wp.data.select('core/block-editor').getBlocks().filter(function (block) {
+      return block.name == 'ourplugin/are-you-paying-attention' && block.attributes.correctAnswer == undefined;
+    });
+    if (results.length && locked == false) {
+      locked = true;
+      wp.data.dispatch('core/editor').lockPostSaving('noanswer');
+    }
+    if (!results.length && locked) {
+      locked = false;
+      wp.data.dispatch('core/editor').unlockPostSaving('noanswer');
+    }
+  });
+}
+ourStartFunction();
 
 // this function is default to WP. wp lives in the global scope and block. when we load the Block editor.
 wp.blocks.registerBlockType('ourplugin/are-you-paying-attention', {
@@ -129,7 +146,11 @@ wp.blocks.registerBlockType('ourplugin/are-you-paying-attention', {
     },
     answers: {
       type: 'array',
-      default: ['red', 'blue']
+      default: ['']
+    },
+    correctAnswer: {
+      type: "numbers",
+      default: undefined
     }
   },
   edit: EditComponent,
@@ -153,6 +174,16 @@ function EditComponent(props) {
     props.setAttributes({
       answers: newAnswers
     });
+    if (indexToDelete == props.attributes.correctAnswer) {
+      props.setAttributes({
+        correctAnswer: undefined
+      });
+    }
+  }
+  function markAsCorrect(index) {
+    props.setAttributes({
+      correctAnswer: index
+    });
   }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "paying-attention-edit-block"
@@ -170,6 +201,7 @@ function EditComponent(props) {
     }
   }, "Answers:"), props.attributes.answers.map(function (answer, index) {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Flex, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+      autoFocus: answer == undefined,
       value: answer,
       onChange: newValue => {
         const newAnswers = props.attributes.answers.concat([]);
@@ -178,9 +210,11 @@ function EditComponent(props) {
           answers: newAnswers
         });
       }
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      onClick: () => markAsCorrect(index)
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
       className: "mark-as-correct",
-      icon: "star-empty"
+      icon: props.attributes.correctAnswer == index ? "star-filled" : "star-empty"
     }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.FlexItem, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
       isLink: true,
       className: "attention-delete",
