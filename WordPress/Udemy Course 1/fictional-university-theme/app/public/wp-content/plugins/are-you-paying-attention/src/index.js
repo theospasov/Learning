@@ -1,4 +1,6 @@
-import {TextControl, Flex, FlexBlock, FlexItem, Button, Icon} from '@wordpress/components'
+import {TextControl, Flex, FlexBlock, FlexItem, Button, Icon, PanelBody, PanelRow, ColorPicker} from '@wordpress/components'
+import {InspectorControls, BlockControls, AlignmentToolbar} from '@wordpress/block-editor'
+import {ChromePicker} from 'react-color'
 
 import "./index.scss"
 
@@ -30,7 +32,9 @@ wp.blocks.registerBlockType('ourplugin/are-you-paying-attention', {
     attributes: {
         question: {type: "string"},
         answers: {type: 'array', default: ['']},
-        correctAnswer: {type: "numbers", default: undefined}
+        correctAnswer: {type: "numbers", default: undefined},
+        bgColor: {type: 'string', default: '#ebebeb'},
+        theAlignment : {type: 'string', default: 'left'}
     },
     edit: EditComponent,
     save: function(props) { // what the public sees 
@@ -60,7 +64,17 @@ function EditComponent(props) { // what we see in the Editor
     }
 
     return (
-        <div className='paying-attention-edit-block'>
+        <div className='paying-attention-edit-block' style={{backgroundColor: props.attributes.bgColor}}>
+            <BlockControls>
+                <AlignmentToolbar value={props.attributes.theAlignment} onChange={x => props.setAttributes({theAlignment: x})} />
+            </BlockControls>
+            <InspectorControls>
+                <PanelBody title="Background Color" initialOpen={true}>
+                    <PanelRow>
+                        <ChromePicker color={props.attributes.bgColor} onChangeComplete={x => props.setAttributes({bgColor: x.hex})} disableAlpha={true} />
+                    </PanelRow>
+                </PanelBody>
+            </InspectorControls>
             <TextControl label="Question:" value={props.attributes.question} onChange={updateQuestion} style={{fontSize: '20px'}}></TextControl>
             <p style={{fontSize: '13px', margin: '20px 0 8px 0'}}>Answers:</p>
             {props.attributes.answers.map(function(answer, index) {
