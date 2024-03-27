@@ -1,4 +1,6 @@
 import {useSelect} from '@wordpress/data'
+import {useState, useEffect} from 'react'
+import apiFetch from '@wordpress/api-fetch'
 
 import "./index.scss"
 
@@ -17,6 +19,28 @@ wp.blocks.registerBlockType("ourplugin/featured-professor", {
 })
 
 function EditComponent(props) {
+  const [thePreview, setThePreview] = useState('')
+
+  useEffect(() => {
+    updateTheMeta() 
+
+    async function go() {
+      const response = await apiFetch({
+        path: `/featuredProfessor/v1/getHTML?profId=${props.attributes.profId}`,
+        method: 'GET'
+      })
+      setThePreview(response)
+    }
+    go()
+  }, [props.attributes.profId])
+
+  function updateTheMeta() {
+    const profsForMeta = wp.data.select('core/block-editor').getBlocks().filter(x => x.name == 'ourplugin/featured-professor').map(x => x.attributes.profId).filter((x, index, arr) => {
+      return arr.indexOf(x) == index
+    })
+    console.log(profsForMeta);
+    wp.data.dispatch('core/editor').editPost({meta: {featuredProfessor: profsForMeta}})
+  }
 
   // Here we fetch prof data from the WP API
   const allProfs = useSelect(select => {
@@ -41,9 +65,7 @@ function EditComponent(props) {
 
         </select>
       </div>
-      <div>
-        The HTML preview of the selected professor will appear here.
-      </div>
+      <div dangerouslySetInnerHTML={{__html: thePreview}}></div>
     </div>
   )
 }

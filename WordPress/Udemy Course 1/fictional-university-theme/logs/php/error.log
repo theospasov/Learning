@@ -561,3 +561,40 @@ Stack trace:
 [20-Mar-2024 20:27:33 UTC] PHP Warning:  Undefined array key "grassColor" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\are-you-paying-attention\index.php on line 32
 [20-Mar-2024 20:27:33 UTC] PHP Warning:  Undefined array key "skyColor" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\are-you-paying-attention\index.php on line 32
 [20-Mar-2024 20:27:33 UTC] PHP Warning:  Undefined array key "grassColor" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\are-you-paying-attention\index.php on line 32
+[26-Mar-2024 08:43:38 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 18
+[26-Mar-2024 08:43:49 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 18
+[26-Mar-2024 08:44:01 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 18
+[26-Mar-2024 08:44:22 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 18
+[26-Mar-2024 09:00:08 UTC] PHP Warning:  Undefined array key "profId" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 43
+[26-Mar-2024 09:01:07 UTC] PHP Warning:  Undefined array key "profId" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 43
+[26-Mar-2024 09:38:24 UTC] PHP Warning:  Undefined array key "profId" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 43
+[26-Mar-2024 09:38:24 UTC] PHP Warning:  Undefined array key "profId" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 43
+[26-Mar-2024 09:38:33 UTC] PHP Warning:  Undefined array key "profId" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 43
+[26-Mar-2024 09:39:47 UTC] PHP Warning:  Undefined array key "profId" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\featured-professor\featured-professor.php on line 43
+[26-Mar-2024 14:40:02 UTC] PHP Parse error:  syntax error, unexpected variable "$pets" in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\template-pets.php on line 22
+[26-Mar-2024 16:57:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method GetPets::createPlaceholders() in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\GetPets.php:9
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\template-pets.php(4): GetPets->__construct()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#4 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\GetPets.php on line 9
+[26-Mar-2024 16:57:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method GetPets::createPlaceholders() in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\GetPets.php:9
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\template-pets.php(4): GetPets->__construct()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#4 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\GetPets.php on line 9
+[26-Mar-2024 16:58:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method GetPets::createPlaceholders() in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\GetPets.php:9
+Stack trace:
+#0 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\template-pets.php(4): GetPets->__construct()
+#1 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-includes\template-loader.php(106): include('C:\\Users\\teodo\\...')
+#2 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-blog-header.php(19): require_once('C:\\Users\\teodo\\...')
+#3 C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\index.php(17): require('C:\\Users\\teodo\\...')
+#4 {main}
+  thrown in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\GetPets.php on line 9
+[26-Mar-2024 16:58:34 UTC] PHP Warning:  Undefined property: GetPets::$pets in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\template-pets.php on line 37
+[26-Mar-2024 16:58:34 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in C:\Users\teodo\Documents\Github\Learning\WordPress\Udemy Course 1\fictional-university-theme\app\public\wp-content\plugins\new-database-table\inc\template-pets.php on line 37
