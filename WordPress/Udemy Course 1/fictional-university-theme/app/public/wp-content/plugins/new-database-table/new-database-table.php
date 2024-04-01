@@ -10,6 +10,8 @@
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 require_once plugin_dir_path(__FILE__) . 'inc/generatePet.php';
 
+define( 'NEWDATABASETABLEPATH', plugin_dir_path( __FILE__ ));
+
 class PetAdoptionTablePlugin {
   function __construct() {
     global $wpdb;
@@ -23,7 +25,6 @@ class PetAdoptionTablePlugin {
     add_action('admin_post_deletepet', array($this, 'deletePet'));
     add_action('admin_post_nopriv_deletepet', array($this, 'deletePet'));
     add_action('wp_enqueue_scripts', array($this, 'loadAssets'));
-    add_filter('template_include', array($this, 'loadTemplate'), 99);
   }
 
   function deletePet() {
@@ -108,3 +109,27 @@ class PetAdoptionTablePlugin {
 }
 
 $petAdoptionTablePlugin = new PetAdoptionTablePlugin();
+
+class OurPluginPlaceholderBlock {
+  function __construct($name) {
+    $this->name = $name;
+    add_action('init', [$this, 'onInit']);
+  }
+
+  function ourRenderCallback($attributes, $content) {
+    ob_start();
+    require plugin_dir_path(__FILE__) . 'our-blocks/' . $this->name . '.php';
+    return ob_get_clean();
+  }
+
+  function onInit() {
+    wp_register_script($this->name, plugin_dir_url(__FILE__) . "/our-blocks/{$this->name}.js", array('wp-blocks', 'wp-editor'));
+    
+    register_block_type("ourdatabaseplugin/{$this->name}", array(
+      'editor_script' => $this->name,
+      'render_callback' => [$this, 'ourRenderCallback']
+    ));
+  }
+}
+
+new OurPluginPlaceholderBlock("petslist");
