@@ -1,5 +1,5 @@
 <?php
-
+// This file creates a custom REST API route for searching posts, pages, professors, programs, campuses, and events. It is used in the search.js file to display search results in the search overlay. The request is made to the website.com/wp-json/university/v1/search?term=someText endpoint. The reason for creating a custom endpoint is to have more control over the data that is returned. The default WordPress search endpoint returns a lot of data that is not needed for the search overlay and we will have to do 6 separate requests to get the data we need. This custom endpoint returns all the data we need in one request.
 add_action('rest_api_init', 'universityRegisterSearch');
 
 function universityRegisterSearch() {
